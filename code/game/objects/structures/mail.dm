@@ -240,4 +240,3 @@
 		usr << "<span class='warning'>The envelope is closed! Use a knife to open it.</span>"
 		return TRUE
 	return..()
- 
