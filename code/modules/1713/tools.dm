@@ -9,6 +9,7 @@
 	throwforce = 3.0
 	item_state = "plough"
 	w_class = 3.0
+	flags = FALSE
 
 	attack_verb = list("bashed", "bludgeoned", "whacked")
 	sharp = FALSE
@@ -31,6 +32,7 @@
 	attack_verb = list("bashed", "bludgeoned", "whacked")
 	sharp = TRUE
 	usespeed = 2.1
+	flags = CONDUCT
 
 /obj/item/weapon/type89_mortar
 	name = "Type 89 Mortar"
@@ -215,6 +217,7 @@
 	sharp = FALSE
 	edge = FALSE
 	flammable = TRUE
+	flags = FALSE
 
 /obj/item/weapon/chisel
 	name = "stone chisel"
@@ -269,6 +272,8 @@
 
 /obj/item/weapon/material/shovel/attack_self(mob/user)
 	var/turf/floor/TB = get_turf(user)
+	if (istype(TB, /turf/floor/beach/water))
+		return
 	var/display = list("Tunnel", "Grave", "Irrigation Channel", "Pit Latrine","Cancel")
 	var/input =  WWinput(user, "What do you want to dig?", "Digging", "Cancel", display)
 	if (input == "Cancel")

@@ -41,12 +41,13 @@ obj/map_metadata/whiterun/job_enabled_specialcheck(var/datum/job/J)
 			. = TRUE
 		else
 			. = FALSE
-	if (istype(J, /datum/job/civilian))
+	else if (istype(J, /datum/job/civilian))
 		if (J.is_skyrim == TRUE && J.is_stormcloak == TRUE)
 			. = TRUE
 		else
 			. = FALSE
-
+	else
+		. = FALSE
 
 /obj/map_metadata/whiterun/roundend_condition_def2name(define)
 	..()
@@ -89,7 +90,7 @@ var/no_loop_whrn = FALSE
 		if (win_condition_spam_check)
 			return FALSE
 		ticker.finished = TRUE
-		var/message = "The Imperials have managed to defend the Whiterun!"
+		var/message = "The Imperials have managed to defend the city of Whiterun!"
 		world << "<font size = 4><span class = 'notice'>[message]</span></font>"
 		show_global_battle_report(null)
 		win_condition_spam_check = TRUE
