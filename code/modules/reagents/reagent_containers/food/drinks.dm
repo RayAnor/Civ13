@@ -27,8 +27,10 @@
 	attack(mob/M as mob, mob/user as mob, def_zone)
 		if (force && !(flags & NOBLUDGEON) && user.a_intent == I_HARM)
 			return ..()
+
 		if (istype(M) && standard_feed_mob(user, M))
-			return TRUE
+			return
+
 		return FALSE
 
 	afterattack(obj/target, mob/user, proximity)
