@@ -443,6 +443,7 @@
 #include "code\game\objects\map_metadata\heraclea.dm"
 #include "code\game\objects\map_metadata\hill203.dm"
 #include "code\game\objects\map_metadata\hostages.dm"
+#include "code\game\objects\map_metadata\hotel.dm"
 #include "code\game\objects\map_metadata\hue.dm"
 #include "code\game\objects\map_metadata\hunt.dm"
 #include "code\game\objects\map_metadata\intramuros.dm"
@@ -969,6 +970,7 @@
 #include "code\modules\reagents\reagent_containers\spray.dm"
 #include "code\modules\reagents\reagent_containers\syringe.dm"
 #include "code\modules\reagents\reagent_containers\food\condiment.dm"
+#include "code\modules\reagents\reagent_containers\food\custom_containers.dm"
 #include "code\modules\reagents\reagent_containers\food\drinks.dm"
 #include "code\modules\reagents\reagent_containers\food\grown.dm"
 #include "code\modules\reagents\reagent_containers\food\grown_varients.dm"
@@ -1029,6 +1031,6 @@
 #include "code\processes\lighting\sources.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\WIP\sovafghan.dmm"
+#include "maps\campaign\campaign4.dmm"
 // END_INCLUDE
 

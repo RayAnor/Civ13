@@ -1,7 +1,7 @@
 /obj/map_metadata/omaha
 	ID = MAP_OMAHA
 	title = "Omaha Beach"
-	lobby_icon_state = "ww2"
+	lobby_icon_state = "omaha"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two)
 	respawn_delay = 1200
 	var/victory_time = 24000
@@ -24,7 +24,7 @@
 	faction1 = AMERICAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	songs = list(
-		"Neue Deutsche Welle (Remix):1" = 'sound/music/neue_deutsche_welle.ogg',)
+		"Neue Deutsche Welle (Remix):1" = "sound/music/neue_deutsche_welle.ogg",)
 	gamemode = "Siege"
 /obj/map_metadata/omaha/job_enabled_specialcheck(var/datum/job/J)
 	..()

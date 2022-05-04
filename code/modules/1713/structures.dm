@@ -237,6 +237,52 @@
 	not_movable = FALSE
 	not_disassemblable = FALSE
 
+/obj/structure/props/hookah
+	name = "hookah"
+	desc = "A glass pipe used to smoke tobacco or other substances."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "hookah1"
+	flammable = FALSE
+	not_movable = FALSE
+	not_disassemblable = TRUE
+	density = FALSE
+	opacity = FALSE
+
+/obj/structre/props/hookah/New()
+	..()
+	var/pickhookah = pick("hookah1", "hookah2", "hookah3")
+	icon_state = pickhookah
+
+/obj/structure/broken_hind
+	name = "Mi-24 remains"
+	desc = "The remains of a Soviet helicopter."
+	icon = 'icons/obj/decals_huge.dmi'
+	icon_state = "brokenhind"
+	flammable = FALSE
+	not_movable = FALSE
+	not_disassemblable = FALSE
+	anchored = TRUE
+	density = TRUE
+	layer = MOB_LAYER + 0.01
+	bound_width = 128
+	bound_height = 128
+	bound_x = 32
+
+/obj/structure/props/marketstall
+	name = "market stall"
+	desc = "A market stall."
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "propstall1"
+	flammable = TRUE
+	not_movable = FALSE
+	not_disassemblable = FALSE
+	density = TRUE
+	opacity = TRUE
+	anchored = TRUE
+	New()
+		..()
+		icon_state ="propstall[rand(1,4)]"
+
 /obj/structure/flag
 	icon = 'icons/obj/flags.dmi'
 	icon_state = "black"
@@ -386,6 +432,16 @@
 	icon_state = "vietcong"
 	name = "Vietcong Flag"
 	desc = "The flag of the National Liberation Front of Vietnam."
+
+/obj/structure/flag/redmenia
+	icon_state = "redmenia"
+	name = "Redmenia Flag"
+	desc = "The flag of Redmenia."
+
+/obj/structure/flag/blugoslavia
+	icon_state = "blugoslavia"
+	name = "Blugoslavia Flag"
+	desc = "The flag of Blugoslavia."
 
 /obj/structure/flag/pole
 	icon_state = "flagpole_blank"

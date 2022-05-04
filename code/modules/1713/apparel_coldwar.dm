@@ -102,6 +102,20 @@
 	item_state = "fbi2"
 	worn_state = "fbi2"
 
+/obj/item/clothing/suit/storage/atf
+	name = "ATF jacket"
+	desc = "An ATF jacket, standard issue for ATF agents."
+	icon_state = "atf"
+	item_state = "atf"
+	worn_state = "atf"
+
+/obj/item/clothing/suit/storage/dea
+	name = "FBI jacket"
+	desc = "A DEA jacket, standard issue for DEA agents."
+	icon_state = "dea"
+	item_state = "dea"
+	worn_state = "dea"
+
 /obj/item/clothing/suit/swat //these likely need upgrading to armor
 	name = "swat heavy vest"
 	desc = "A heavy NIJ level IV vest, used by swat officers."
@@ -122,6 +136,7 @@
 	worn_state = "policevest"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(melee = 60, arrow = 20, gun = 74, energy = 40, bomb = 20, bio = 32, rad = 20)
+	var/slots = 3
 	ripable = FALSE
 
 /obj/item/clothing/under/traffic_police
@@ -548,6 +563,14 @@
 	item_state = "nkvd_cap"
 	worn_state = "nkvd_cap"
 
+/obj/item/clothing/head/fieldcap/afghanka
+	name = "Afghanka field cap"
+	desc = "A cap and worn by Soviet forces in Afghanistan."
+	icon_state = "fieldcap_afghanka"
+	item_state = "fieldcap_afghanka"
+	worn_state = "fieldcap_afghanka"
+	body_parts_covered = HEAD
+
 /obj/item/clothing/head/beret_rus_vdv
 	name = "VDV beret"
 	desc = "A beret worn by the Russian Airborn Forces."
@@ -844,7 +867,7 @@
 /obj/item/weapon/storage/belt/smallpouches/green/sov_74_alt
 /obj/item/weapon/storage/belt/smallpouches/green/sov_74_alt/New()
 	..()
-	new /obj/item/weapon/grenade/modern/custom(src)
+	new /obj/item/weapon/grenade/coldwar/rgd5(src)
 	new /obj/item/ammo_magazine/ak74(src)
 	new /obj/item/ammo_magazine/ak74(src)
 	new /obj/item/stack/medical/bruise_pack/gauze(src)
@@ -1094,7 +1117,31 @@
 		..()
 		hold.can_hold = list(/obj/item/weapon/material/kitchen/utensil,/obj/item/weapon/key,/obj/item/ammo_casing, /obj/item/ammo_magazine, /obj/item/weapon/grenade,/obj/item/weapon/attachment,/obj/item/weapon/handcuffs,/obj/item/stack/medical/bruise_pack)
 
+/obj/item/clothing/accessory/storage/webbing/shotgun_bandolier
+	name = "shotgun bandolier"
+	desc = "A bandolier with several holes made to fit shotgun shells."
+	icon_state = "us_bandolier"
+	item_state = "us_bandolier"
+	slots = 12
+	New()
+		..()
+		hold.can_hold = list(/obj/item/ammo_casing/shotgun)
 
+/obj/item/clothing/accessory/storage/webbing/shotgun_bandolier/filled_buckshot
+	New()
+		..()
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
+		new /obj/item/ammo_casing/shotgun/buckshot(hold)
 /* NBC &  Hazmat Suits*/
 
 /obj/item/clothing/head/nbc
@@ -1224,6 +1271,23 @@
 			usr << "You <b>close up</b> the collar of your uniform."
 			adjusted = TRUE
 			update_clothing_icon()
+
+/obj/item/clothing/under/sov_klmk
+	name = "KLMK camo uniform"
+	desc = "A suit in the KLMK camo pattern, issued by the Soviet Union in the 1970s."
+	icon_state = "sov_klmk"
+	item_state = "sov_klmk"
+	worn_state = "sov_klmk"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/under/sov_kzs
+	name = "KZS camo uniform"
+	desc = "A suit in the KZS camo pattern, issued by the Soviet Union in the late 1970s."
+	icon_state = "sov_kzs"
+	item_state = "sov_kzs"
+	worn_state = "sov_kzs"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
 
 	/* Swinging 60's*/
 
@@ -1379,3 +1443,23 @@
 	icon_state = "nkvd_uni"
 	item_state = "nkvd_uni"
 	worn_state = "nkvd_uni"
+
+/obj/item/clothing/under/coldwar/dra/soldier
+	name = "DRA uniform"
+	desc = "A military uniform worn by DRA soldiers."
+	icon_state = "dra_uni"
+	item_state = "dra_uni"
+	worn_state = "dra_uni"
+
+/obj/item/clothing/under/coldwar/dra/officer
+	name = "DRA officer uniform"
+	desc = "A military uniform worn by DRA officers."
+	icon_state = "dra_uni_officer"
+	item_state = "dra_uni_officer"
+	worn_state = "dra_uni_officer"
+
+/obj/item/clothing/head/custom/fieldcap/dra
+	name = "DRA field cap"
+	desc = "A cap worn by DRA military personnel."
+	color = "#767160"
+	uncolored1 = FALSE

@@ -56,7 +56,7 @@
 		loaded = list()
 		chambered = null
 	else
-		if (ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
+		if (ispath(ammo_type) && ((load_method & (SINGLE_CASING|SPEEDLOADER)) || istype(src, /obj/item/weapon/gun/projectile/shotgun)))
 			for (var/i in TRUE to max_shells)
 				loaded += new ammo_type(src)
 		if (ispath(magazine_type) && (load_method & MAGAZINE))

@@ -225,6 +225,15 @@
 	sel_mode = 1
 	effectiveness_mod = 0.95
 
+/obj/item/weapon/gun/projectile/submachinegun/mp40/mp5
+	name = "MP5"
+	desc = "German submachinegun with an underfolding stock, chambered in 9mm Parabellum."
+	icon_state = "mp5"
+	item_state = "mp5"
+	base_icon = "mp5"
+	magazine_type = /obj/item/ammo_magazine/mp40/mp5
+	good_mags = list(/obj/item/ammo_magazine/mp40/mp5)
+
 /obj/item/weapon/gun/projectile/submachinegun/greasegun
 	name = "M3A1 SMG"
 	desc = "A simplistic American submachinegun, chambered in .45 ACP."
@@ -358,7 +367,7 @@
 	caliber = "a762x39"
 	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak47
-	good_mags = list(/obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/makeshift)
+	good_mags = list(/obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/drum, /obj/item/ammo_magazine/ak47/makeshift)
 	weight = 3.47
 	equiptimer = 15
 	slot_flags = SLOT_SHOULDER
@@ -478,7 +487,7 @@
 	caliber = "a545x39"
 	fire_sound = 'sound/weapons/guns/fire/AK74.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak74
-	good_mags = list(/obj/item/ammo_magazine/ak74)
+	good_mags = list(/obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/drum)
 	weight = 3.07
 	equiptimer = 15
 	slot_flags = SLOT_SHOULDER
@@ -748,7 +757,7 @@
 	caliber = "a545x39"
 	fire_sound = 'sound/weapons/guns/fire/AK74.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak74/ak74m
-	good_mags = list(/obj/item/ammo_magazine/ak74/ak74m, /obj/item/ammo_magazine/ak74)
+	good_mags = list(/obj/item/ammo_magazine/ak74/ak74m, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/drum, /obj/item/ammo_magazine/ak74/ak74m/drum)
 	weight = 3.07
 	equiptimer = 15
 	slot_flags = SLOT_SHOULDER

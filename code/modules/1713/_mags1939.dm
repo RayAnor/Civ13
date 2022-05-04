@@ -78,6 +78,10 @@
 	weight = 0.34
 	multiple_sprites = TRUE
 
+/obj/item/ammo_magazine/mp40/mp5
+	name = "MP5 magazine (9x19mm)"
+	icon_state = "mp5"
+
 /obj/item/ammo_magazine/mg34
 	name = "MG34 magazine (7.92x57mm)"
 	icon_state = "mg34"
@@ -233,7 +237,7 @@ obj/item/ammo_magazine/dp
 
 /obj/item/ammo_magazine/garand
 	name = "clip (30-06) 8 rounds"
-	icon_state = "clip"
+	icon_state = "g-clip"
 	caliber = "a3006"
 
 	ammo_type = /obj/item/ammo_casing/a3006

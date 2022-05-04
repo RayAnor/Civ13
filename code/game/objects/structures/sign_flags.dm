@@ -100,11 +100,38 @@
 	icon_state = "carpet"
 	layer = OBJ_LAYER - 0.1
 
+/obj/structure/sign/wide/carpet/purple
+	name = "\improper Carpet"
+	desc = "A low quality carpet dangling on the wall."
+	icon = 'icons/obj/decals_wide.dmi'
+	icon_state = "carpet2"
+	layer = OBJ_LAYER - 0.1
+
+/obj/structure/sign/wide/carpet/red
+	name = "\improper Carpet"
+	desc = "A low quality carpet dangling on the wall."
+	icon = 'icons/obj/decals_wide.dmi'
+	icon_state = "carpet3"
+	layer = OBJ_LAYER - 0.1
+
+/obj/structure/sign/wide/carpet/green
+	name = "\improper Carpet"
+	desc = "A low quality carpet dangling on the wall."
+	icon = 'icons/obj/decals_wide.dmi'
+	icon_state = "carpet4"
+	layer = OBJ_LAYER - 0.1
+
 /obj/structure/sign/wide/stalingrad
 	name = "Stalingrad sign"
 	desc = "A worn-out sign displaying Stalingrad in cyrilic."
 	icon = 'icons/obj/decals_wide.dmi'
 	icon_state = "stalingrad"
+
+/obj/structure/sign/wide/kandahar
+	name = "Kandahar sign"
+	desc = "A worn-out sign displaying Kandahar."
+	icon = 'icons/obj/decals_wide.dmi'
+	icon_state = "kandahar"
 
 /obj/structure/sign
 	anchored = TRUE
@@ -350,6 +377,11 @@
 	name = "Cuban flag"
 	desc = "The Cuban flag."
 	icon_state = "flag_cuba"
+
+/obj/structure/sign/flag/afghan/dra
+	name = "DRA flag"
+	desc = "The Democratic Republic of Afghanistan flag."
+	icon_state = "flag_dra"
 
 /obj/structure/sign/flag/italy
 	name = "Italian flag"

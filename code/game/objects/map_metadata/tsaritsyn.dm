@@ -2,7 +2,7 @@
 /obj/map_metadata/tsaritsyn
 	ID = MAP_TSARITSYN
 	title = "Tsaritsyn"
-	lobby_icon_state = "ww1"
+	lobby_icon_state = "rcw"
 	no_winner ="The church is under Soviet control."
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two)
 	respawn_delay = 600
@@ -25,7 +25,7 @@
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET, WEATHER_EXTREME)
 	ordinal_age = 5
 	songs = list(
-		"Korobushka:1" = 'sound/music/korobushka.ogg')
+		"Korobushka:1" = "sound/music/korobushka.ogg")
 	gamemode = "Siege"
 
 obj/map_metadata/tsaritsyn/job_enabled_specialcheck(var/datum/job/J)

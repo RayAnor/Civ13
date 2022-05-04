@@ -103,6 +103,9 @@
 					A.w_back[7] = TRUE
 					A.w_left[7] = TRUE
 					A.w_right[7] = TRUE
+	spawn(100)
+		if(src)
+			qdel(src)
 /obj/effects/premadevehicles/proc/new_number()
 	var/tempnum = 0
 	tempnum = "[pick(alphabet_uppercase)][pick(alphabet_uppercase)][pick(alphabet_uppercase)] [rand(0,9)][rand(0,9)][rand(0,9)]"
@@ -310,6 +313,29 @@
 	"1,4" = list(/obj/structure/vehicleparts/movement/tracks/left/reversed,/obj/structure/vehicleparts/frame/omw22_2/rb),
 	"2,4" = list(/obj/structure/vehicleparts/frame/omw22_2/back,/obj/structure/engine/internal/diesel/premade/omw22_2,/obj/structure/lamp/lamp_small/tank/red),
 	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/omw22_2/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled),
+	)
+
+/obj/effects/premadevehicles/tank/baf1_a
+	name = "BAF I mod. A"
+	icon_state = "3x3"
+	custom_color = "#8383C2"
+	axis = /obj/structure/vehicleparts/axis/heavy/baf1_a
+	tocreate = list(
+	"1,1" = list(/obj/structure/vehicleparts/movement/tracks/right,/obj/structure/vehicleparts/frame/baf1_a/rf,/obj/structure/lamp/lamp_small/tank/floodlight,/obj/structure/bed/chair/drivers/tank),
+	"2,1" = list(/obj/structure/vehicleparts/frame/baf1_a/front, /obj/structure/bed/chair/commander),
+	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/baf1_a/lf,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm,/obj/structure/lamp/lamp_small/tank/floodlight),
+
+	"1,2" = list(/obj/structure/vehicleparts/frame/baf1_a/right),
+	"2,2" = list(/obj/structure/vehicleparts/frame/baf1_a,/obj/structure/cannon/modern/tank/baftkn75),
+	"3,2" = list(/obj/structure/vehicleparts/frame/baf1_a/left, /obj/structure/bed/chair/loader),
+
+	"1,3" = list(/obj/structure/vehicleparts/frame/baf1_a/right/door,/obj/item/weapon/storage/toolbox/emergency),
+	"2,3" = list(/obj/structure/vehicleparts/frame/baf1_a/center_back, /obj/structure/bed/chair/gunner),
+	"3,3" = list(/obj/structure/vehicleparts/frame/baf1_a/left/door),
+
+	"1,4" = list(/obj/structure/vehicleparts/movement/tracks/left/reversed,/obj/structure/vehicleparts/frame/baf1_a/rb,/obj/structure/engine/internal/gasoline/premade/baf1_a),
+	"2,4" = list(/obj/structure/vehicleparts/frame/baf1_a/back,/obj/structure/lamp/lamp_small/tank/red,/obj/structure/shellrack/full75),
+	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/baf1_a/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueledgasoline),
 	)
 
 /obj/effects/premadevehicles/tank/chiha

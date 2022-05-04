@@ -36,7 +36,7 @@ var/civmax_research = list(230,230,230)
 		list(BRITISH) = /area/caribbean/british)
 	var/list/ambience = list('sound/ambience/ship1.ogg')
 	var/list/songs = list(
-		"Nassau Shores:1" = 'sound/music/nassau_shores.ogg',)
+		"Nassau Shores:1" = "sound/music/nassau_shores.ogg",)
 	var/mission_start_message = "Round will start soon!"
 	var/is_RP = FALSE
 	var/squads = 1
@@ -100,6 +100,8 @@ var/civmax_research = list(230,230,230)
 	var/list/times_of_day = list("Early Morning", "Morning", "Midday", "Afternoon", "Evening", "Night")
 	var/list/zlevels_without_lighting = list()
 	var/list/areas_without_lighting = list()
+
+	var/round_finished = FALSE
 
 	// fluff
 	var/meme = FALSE

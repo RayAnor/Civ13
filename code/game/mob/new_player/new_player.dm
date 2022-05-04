@@ -129,7 +129,7 @@ var/global/redirect_all_players = null
 				output += "<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</a></p>"
 
 	var/height = 250
-	if (map.ID != MAP_CAMPAIGN || client.holder)
+	if (map && map.ID != MAP_CAMPAIGN || client.holder)
 		output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
 
 	output += "</div>"
@@ -579,9 +579,59 @@ var/global/redirect_all_players = null
 			WWalert(usr,"There is an administrative lock on entering the game!", "Error")
 			return
 
-		if (map && map.has_occupied_base(job_flag) && map.ID != MAP_CAPITOL_HILL && map.ID != MAP_CAMP && map.ID != MAP_HILL_203 && map.ID != MAP_CALOOCAN && map.ID != MAP_YELTSIN)
+		if (map && map.has_occupied_base(job_flag) && map.ID != MAP_CAPITOL_HILL && map.ID != MAP_CAMP && map.ID != MAP_HILL_203 && map.ID != MAP_CALOOCAN && map.ID != MAP_YELTSIN && map.ID != MAP_HOTEL)
 			WWalert(usr,"The enemy is currently occupying your base! You can't be deployed right now.", "Error")
 			return
+
+//Sovafghan DRA spawnpoints
+		if (map && map.ID == MAP_SOVAFGHAN)
+			var/obj/map_metadata/sovafghan/MP = map
+			var/randspawn = rand(1,4)
+			switch (randspawn)
+				if (1)
+					if (MP.a1_control != "Mujahideen")
+						if (actual_job && actual_job.title == "DRA Sergeant")
+							actual_job.spawn_location = "JoinLateDRACap1"
+						if (actual_job && actual_job.title == "DRA Soldier")
+							actual_job.spawn_location = "JoinLateDRA1"
+					else
+						if (actual_job && actual_job.title == "DRA Sergeant")
+							actual_job.spawn_location = "JoinLateDRACap"
+						if (actual_job && actual_job.title == "DRA Soldier")
+							actual_job.spawn_location = "JoinLateDRA"
+				if (2)
+					if (MP.a2_control != "Mujahideen")
+						if (actual_job && actual_job.title == "DRA Sergeant")
+							actual_job.spawn_location = "JoinLateDRACap2"
+						if (actual_job && actual_job.title == "DRA Soldier")
+							actual_job.spawn_location = "JoinLateDRA2"
+					else
+						if (actual_job && actual_job.title == "DRA Sergeant")
+							actual_job.spawn_location = "JoinLateDRACap"
+						if (actual_job && actual_job.title == "DRA Soldier")
+							actual_job.spawn_location = "JoinLateDRA"
+				if (3)
+					if (MP.a3_control != "Mujahideen")
+						if (actual_job && actual_job.title == "DRA Sergeant")
+							actual_job.spawn_location = "JoinLateDRACap3"
+						if (actual_job && actual_job.title == "DRA Soldier")
+							actual_job.spawn_location = "JoinLateDRA3"
+					else
+						if (actual_job && actual_job.title == "DRA Sergeant")
+							actual_job.spawn_location = "JoinLateDRACap"
+						if (actual_job && actual_job.title == "DRA Soldier")
+							actual_job.spawn_location = "JoinLateDRA"
+				if (4)
+					if (MP.a4_control != "Mujahideen")
+						if (actual_job && actual_job.title == "DRA Sergeant")
+							actual_job.spawn_location = "JoinLateDRACap4"
+						if (actual_job && actual_job.title == "DRA Soldier")
+							actual_job.spawn_location = "JoinLateDRA4"
+					else
+						if (actual_job && actual_job.title == "DRA Sergeant")
+							actual_job.spawn_location = "JoinLateDRACap"
+						if (actual_job && actual_job.title == "DRA Soldier")
+							actual_job.spawn_location = "JoinLateDRA"
 
 //prevent boss spawns if there are enemies in the building
 		if (map && map.ID == MAP_CAPITOL_HILL)
@@ -963,6 +1013,12 @@ var/global/redirect_all_players = null
 			dat += "[alive_civilians.len] Soviets "
 		if (map && istype(map, /obj/map_metadata/african_warlords))
 			dat += "[alive_civilians.len] UN Peacekeepers "
+		if (map && istype(map, /obj/map_metadata/capitol_hill))
+			dat += "[alive_civilians.len] Rioters "
+		if (map && istype(map, /obj/map_metadata/yeltsin))
+			dat += "[alive_civilians.len] Soviet Remnants "
+		if (map && istype(map, /obj/map_metadata/missionary_ridge))
+			dat += "[alive_civilians.len] Confederates "
 		else
 			dat += "[alive_civilians.len] Civilians "
 	if (GREEK in map.faction_organization)
@@ -970,11 +1026,17 @@ var/global/redirect_all_players = null
 	if (ROMAN in map.faction_organization)
 		dat += "[alive_roman.len] Romans "
 	if (ARAB in map.faction_organization)
-		dat += "[alive_arab.len] Arabs "
+		if (map && istype(map, /obj/map_metadata/sovafghan))
+			dat += "[alive_arab.len] Mujahideen "
+		else
+			dat += "[alive_arab.len] Arabs "
 	if (JAPANESE in map.faction_organization)
 		dat += "[alive_japanese.len] Japanese "
 	if (RUSSIAN in map.faction_organization)
-		dat += "[alive_russian.len] Russian "
+		if (map && istype(map, /obj/map_metadata/yeltsin))
+			dat += "[alive_russian.len] Russian Army "
+		else
+			dat += "[alive_russian.len] Russian "
 	if (CHECHEN in map.faction_organization)
 		dat += "[alive_chechen.len] Chechen "
 	if (FINNISH in map.faction_organization)
@@ -984,6 +1046,10 @@ var/global/redirect_all_players = null
 	if (AMERICAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/arab_town))
 			dat += "[alive_american.len] Israeli "
+		if (map && istype(map, /obj/map_metadata/capitol_hill))
+			dat += "[alive_american.len] American Government "
+		if (map && istype(map, /obj/map_metadata/missionary_ridge))
+			dat += "[alive_american.len] Union Soldiers "
 		else
 			dat += "[alive_american.len] American "
 	if (VIETNAMESE in map.faction_organization)
@@ -1116,11 +1182,31 @@ var/global/redirect_all_players = null
 						temp_name = "Africans"
 					else if (temp_name == "Civilian")
 						temp_name = "United Nations"
+				else if (map && map.ID == "MISSIONARY_RIDGE")
+					if (temp_name == "American")
+						temp_name = "Union"
+					if (temp_name == "Civilian")
+						temp_name = "Confederate"
 				else if (map && map.ID == "WHITERUN")
 					if (temp_name == "Roman")
 						temp_name = "Imperials"
 					if (temp_name == "Civilian")
 						temp_name = "Stormcloaks"
+				else if (map && map.ID == "CAPITOL_HILL")
+					if (temp_name == "American")
+						temp_name = "American Government"
+					if (temp_name == "Civilian")
+						temp_name = "Rioters"
+				else if (map && map.ID == "YELTSIN")
+					if (temp_name == "Russian")
+						temp_name = "Russian Army"
+					if (temp_name == "Civilian")
+						temp_name = "Soviet Militia"
+				else if (map && map.ID == "SOVAFGHAN")
+					if (temp_name == "Russian")
+						temp_name = "Soviet Army"
+					if (temp_name == "Arab")
+						temp_name = "Mujahideen"
 				else if (map && map.ID == MAP_CAMPAIGN)
 					if (temp_name == "Civilian")
 						temp_name = "Red"

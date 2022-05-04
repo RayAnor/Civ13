@@ -242,6 +242,20 @@
 	item_state = "keffiyeh_red"
 	worn_state = "keffiyeh_red"
 
+/obj/item/clothing/head/pakol
+	name = "pakol"
+	desc = "A soft round-topped men's cap made of wool."
+	icon_state = "pakol_rose"
+	item_state = "pakol_rose"
+	worn_state = "pakol_rose"
+	heat_protection = HEAD
+/obj/item/clothing/head/pakol/New()
+	..()
+	var/pickcolor = pick("pakol_rose", "pakol_beige", "pakol_bgrey")
+	icon_state = pickcolor
+	item_state = pickcolor
+	worn_state = pickcolor
+
 /*Medieval Suits*/
 
 /obj/item/clothing/suit/storage/jacket/arabic_robe
@@ -2446,6 +2460,19 @@ obj/item/clothing/head/helmet/samurai/black
 	restricts_view = 2
 	health = 60
 	slowdown = 0.01
+
+/obj/item/clothing/head/helmet/medieval/tes13/iron
+	name = "iron helmet"
+	desc = "A thick horned helmet of iron worn often by bandits mercenaries and travelers."
+	icon_state = "tes13_iron"
+	item_state = "tes13_iron"
+	worn_state = "tes13_iron"
+	body_parts_covered = HEAD|FACE
+	flags_inv = BLOCKHAIR
+	armor = list(melee = 45, arrow = 30, gun = 15, energy = 25, bomb = 30, bio = 20, rad = FALSE)
+	restricts_view = 2
+	health = 100
+	slowdown = 0.02
 
 /obj/item/clothing/suit/armor/tes13/stormcloak
 	name = "stormcloak officer armor"
